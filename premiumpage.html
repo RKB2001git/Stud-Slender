@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Premium Membership</title>
+	    <style>
+        /* Existing CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url("./img/blue-purple-smoke-effect-black-background.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        .premium-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .premium-card {
+            background-color: rgb(28, 26, 26);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .premium-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .premium-card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .premium-card .price {
+            font-size: 1.5rem;
+            color: gold;
+            margin: 10px 0;
+        }
+
+        .premium-card .old-price {
+            text-decoration: line-through;
+            color: white;
+        }
+
+        .premium-card .offer-details {
+            font-size: 0.9rem;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .buy-now-btn {
+            padding: 9px;
+            margin: 5px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, rgb(100, 85, 1), rgb(255, 218, 68), rgb(121, 81, 5));
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.2s ease;
+        }
+
+        .buy-now-btn:hover {
+            background: linear-gradient(45deg, rgb(232, 198, 5), rgb(255, 218, 68), rgb(82, 54, 3));
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .premium-card {
+                max-width: 100%;
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-card {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        /* Subscription Form Styles */
+        .subscription-form {
+            display: none;
+            background-color: rgb(28, 26, 26);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .subscription-form h3 {
+            margin: 0 0 20px;
+            font-size: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .subscription-form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #e0e0e0;
+        }
+
+        .subscription-form input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .subscription-form button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(45deg, rgb(100, 85, 1), rgb(255, 218, 68), rgb(121, 81, 5));
+            color: black;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .subscription-form button:hover {
+            background: linear-gradient(45deg, rgb(232, 198, 5), rgb(255, 218, 68), rgb(82, 54, 3));
+        }
+
+        .payment-status {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: green;
+            display: none;
+        }
+
+        /* Payment Modal */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payment-modal-content {
+            background-color: rgb(28, 26, 26);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+        }
+
+        .payment-modal-content h3 {
+            margin: 0 0 20px;
+            font-size: 1.5rem;
+        }
+
+        .close-modal-btn {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(45deg, rgb(232, 198, 5), rgb(255, 218, 68), rgb(82, 54, 3));
+            color: black;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        #paymentStatus{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	<div class="premium-container">
+        <!-- Premium Cards -->
+        <div class="premium-card" data-plan="ELITE" data-duration="12 MONTHS" data-price="₹840 + ₹100 GST">
+            <H1>ELITE</H1>
+            <h2>12 MONTHS</h2>
+            <div class="price"><span class="old-price">₹1000</span> ₹840 (70/mo) + ₹100 GST</div>
+            <div class="offer-details">
+                <p>+ Get FREE 3 months extension</p>
+                <P>+ Get access to personal trainer!</P>
+                <p>+ Get access to playlists, Listen to mindful musics</p>
+                <p>+ Get access to MMA & Boxing training!</p>
+            </div>
+            <button class="buy-now-btn">BUY NOW</button>
+        </div>
+
+        <div class="premium-card" data-plan="PRO" data-duration="3 MONTHS" data-price="₹240 + ₹75 GST">
+            <H1>PRO</H1>
+            <h2>3 MONTHS</h2>
+            <div class="price"><span class="old-price">₹360</span> ₹240 (80/mo) + ₹75 GST</div>
+            <div class="offer-details">
+                <p>+ Get FREE 1 months extension</p>
+                <P>+ Get access to personal trainer!</P>
+                <p>+ Get access to playlists, Listen to mindful musics</p>
+                <p>+ Get smart workout plans.</p>
+            </div>
+            <button class="buy-now-btn">BUY NOW</button>
+        </div>
+
+        <div class="premium-card" data-plan="BASIC" data-duration="1 MONTH" data-price="₹100 + ₹50 GST">
+            <H1>BASIC</H1>
+            <h2>1 MONTH</h2>
+            <div class="price"><span class="old-price">₹200</span> ₹100 (100/mo) + ₹50 GST</div>
+            <div class="offer-details">
+                <p>+ Get FREE 15 days extension!</p>
+                <p>+ Get access to personal trainer.</p>
+                <p>+ 1 more Offer</p>
+            </div>
+            <button class="buy-now-btn">BUY NOW</button>
+        </div>
+    </div>
+
+    <!-- Subscription Form -->
+    
+    <div class="subscription-form" id="subscriptionForm">
+    <form action="" method="post">
+        <h3>Subscription Form</h3>
+        
+        <label for="userPlan">Plan</label>
+        <input type="text" id="userPlan" name="userplan" readonly>
+
+        <label for="userDuration">Duration</label>
+        <input type="text" id="userDuration" name="userduration" readonly>
+
+        <label for="userPrice">Price</label>
+        <input type="text" id="userPrice" name="userprice" readonly>
+
+        <label for="userEmail">Email</label>
+        <input type="email" id="userEmail" name="useremail" required>
+
+        <label for="userPhone">Phone Number</label>
+        <input type="tel" id="userPhone" name="userphone" required>
+
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startdate" required>
+
+        <button id="payButton" style="background-color:red;color:white;width:60px;padding:10px;margin-bottom:10px;">Pay</button>
+        <label for="paymentStatus"></label>
+        <input type="text" id="paymentStatus" class="payment-status" name="paymentstatus" readonly>
+
+        <!-- Payment Modal -->
+        <div class="payment-modal" id="paymentModal">
+            <div class="payment-modal-content">
+                <h3>Enter Payment Details</h3>
+                <input type="text" placeholder="Card Number"  required><br><br>
+                <input type="text" placeholder="Name on Card" name="cardholdername" required><br><br>
+                <input type="text" placeholder="Expiry Date" required><br><br>
+                <input type="text" placeholder="CVV" required><br><br>
+                <button class="close-modal-btn" id="submitPayment" type="button">Submit Payment</button>
+            </div>
+        </div>
+<!-- 
+        <div class="payment-status" id="paymentStatus">Payment Successful!</div> -->
+
+        <button id="finalSubmit" type="submit">Final Submit</button>
+        </form>
+    </div>
+    
+
+    <script>
+        // Show subscription form when BUY NOW is clicked
+        const paymentStatusInput = document.getElementById('paymentStatus');
+        document.querySelectorAll('.buy-now-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const plan = this.closest('.premium-card').dataset.plan;
+                const duration = this.closest('.premium-card').dataset.duration;
+                const price = this.closest('.premium-card').dataset.price;
+
+                document.getElementById('userPlan').value = plan;
+                document.getElementById('userDuration').value = duration;
+                document.getElementById('userPrice').value = price;
+
+                document.getElementById('subscriptionForm').style.display = 'block';
+            });
+        });
+
+        // Show payment modal on Pay button click
+        document.getElementById('payButton').addEventListener('click', function () {
+            const email = document.getElementById('userEmail').value;
+            const phone = document.getElementById('userPhone').value;
+            const startDate = document.getElementById('startDate').value;
+
+            if (email && phone && startDate) {
+                document.getElementById('paymentModal').style.display = 'flex';
+            } else {
+                alert('Please fill in all the required fields.');
+            }
+        });
+
+        // Simulate payment process and close modal
+        document.getElementById('submitPayment').addEventListener('click', function () {
+            setTimeout(function () {
+                document.getElementById('paymentModal').style.display = 'none';
+                document.getElementById('paymentStatus').style.display = 'block';
+                paymentStatusInput.value = 'Payment Successful';
+            }, 1000);
+        });
+
+        // Final Submit button
+        document.getElementById('finalSubmit').addEventListener('click', function () {
+            if (document.getElementById('paymentStatus').style.display === 'block') {
+                alert('Form Submitted Successfully!');
+                window.location.href = 'index.html'; // Redirect to home page
+            } else {
+                alert('Please complete the payment process first.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Stud & Slender</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        scroll-behavior: smooth;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        background-image: url("img/landingbg.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        /* z-index:2; */
+    }
+
+    .container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+
+        z-index: 1;
+    }
+    .container h1,
+    .container h2,
+    .container p,
+    .container button{
+        
+        position: relative;
+        line-height: 30px;
+        z-index: 2;
+        margin:0px;
+        padding:0px;
+        padding-left:40px;
+        line-height:40px;
+        
+    }
+    .container h1{
+        margin-bottom:15px;
+    }
+    .container h2{
+        margin-bottom:10px;
+    }
+    .container button{
+        margin-left:45px;
+        padding:7px 10px 7px 10px;
+    }
+    
+
+
+    .text-section {
+        flex: 1;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .text-section h1 {
+        font-size: 3em;
+        /* margin-bottom: 10px; */
+    }
+
+    .text-section p {
+        font-size: 1.2em;
+        /* margin-bottom: 15px; */
+    }
+
+    .text-section button {
+        padding: 4px 25px;
+        font-size: 1em;
+        color: white;
+        background-color: rgb(122, 14, 14);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: fit-content;
+    }
+
+    .text-section button:hover {
+        background-color: rgb(163, 14, 14);
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+
+        }
+
+        .text-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .text-section h1 {
+            font-size: 2em;
+        }
+
+        .text-section p {
+            font-size: 1em;
+        }
+
+        .text-section button {
+            align-self: center;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .text-section h1 {
+            font-size: 1.5em;
+        }
+
+        .text-section p {
+            font-size: 0.9em;
+        }
+
+
+    }
+
+    .slide-container {
+        width: 90%;
+
+    }
+
+    .section {
+        display: flex;
+        align-items: center;
+        height: 70vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .section img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px;
+    }
+
+    .section .text {
+        width: 50%;
+        padding: 20px;
+    }
+
+    .section h2 {
+        margin-top: 0;
+    }
+
+    .section button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+
+    .left {
+        flex-direction: row;
+    }
+
+    .right {
+        flex-direction: row-reverse;
+    }
+
+    .left img,
+    .right img {
+        order: 1;
+    }
+
+    .left .text,
+    .right .text {
+        order: 2;
+    }
+
+    @media (max-width:780px) {
+        .slide-container {
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .section {
+            flex-direction: column;
+        }
+
+        .section img,
+        .section .text {
+            width: 100%;
+            text-align: center;
+            order: initial;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1>Welcome to Stud and Slender</h1>
+            <h2>Become fitter, stronger and more confident</h2>
+            <p>Get results You can see and feel! </p>
+            <p>Your ultimate destination for fitness guides, exercise routines, and personalized health checks.</p>
+            <a href="newlogin.html"><button>Sign in to join</button></a>
+        </div>
+    </div>
+    <div class="slide-container">
+        <h1 style="text-align: center; margin: 40px 0; ">Explore Our Fitness and Wellness Programs</h1>
+
+        <div class="section left">
+            <img src="https://www.bing.com/th/id/OGC.a85a4675ec0c794eb19eee9d00e8509d?pid=1.7&rurl=https%3a%2f%2fwww.icegif.com%2fwp-content%2fuploads%2f2022%2f01%2ficegif-288.gif&ehk=BBoA0v4sfTbiCjcvAJG4H10B1qxF21Za2b1HkYV9nBk%3d"
+                alt="Yoga and Meditation">
+            <div class="text">
+                <h2>Yoga and Meditation</h2>
+                <p>Explore the benefits of yoga and meditation for improving flexibility, reducing stress, and
+                    enhancing overall well-being.</p>
+                <button>Learn More</button>
+                <!-- <a href="yoga.html" class="lmbtn">Learn More</a> -->
+            </div>
+        </div>
+        <div class="section right">
+            <img src="https://www.bing.com/th/id/OGC.b22109311d38dff674e3799fb224707a?pid=1.7&rurl=https%3a%2f%2f66.media.tumblr.com%2f19a49fa58f085910145e86735ac74d9c%2ftumblr_nksj75yg6G1sr9vtpo1_500.gif&ehk=uTzBBapZeBafAOWW0P3sEBqbCTd8YropI1NYn2QrQ%2fQ%3d"
+                alt="Workout">
+            <div class="text">
+                <h2>Workout</h2>
+                <p>Get inspired with effective workout routines to build strength, endurance, and achieve your
+                    fitness goals.</p>
+                <button>Learn More</button>
+                <!-- <a href="workout.html" class="lmbtn">Learn More</a> -->
+            </div>
+        </div>
+        <div class="section left">
+            <img src="https://www.bing.com/th/id/OGC.ef00c29cbefb9e90fa34ea4ddf2afb6b?pid=1.7&rurl=https%3a%2f%2fmedia.giphy.com%2fmedia%2foO3nGIHCX0EGQlc4RX%2fgiphy.gif&ehk=3IvmBu4s5iEa5slZ%2bbrVqpfebqpx4juhB%2bpveFtv3uM%3d"
+                alt="MMA and Boxing">
+            <div class="text">
+                <h2>MMA and Boxing</h2>
+                <p>Discover the intense world of MMA and boxing with training tips, techniques, and strategies for
+                    combat sports enthusiasts.</p>
+                <button>Learn More</button>
+                <!-- <a href="mma.html" class="lmbtn">Learn More</a> -->
+            </div>
+        </div>
+        <div class="section right">
+            <img src="https://www.bing.com/th/id/OGC.720a6622c7625d3bedbbeb1c212c42cb?pid=1.7&rurl=http%3a%2f%2fmedia.giphy.com%2fmedia%2fuwKE1Ab9Nww3m%2fgiphy.gif&ehk=TO7J9Ywn%2ff4nYDqD2Zf%2bvzA3ue45yfo5tDWYx6WZ%2fzc%3d"
+                alt="Eat Healthy">
+            <div class="text">
+                <h2>Eat Healthy</h2>
+                <p>Learn about nutritious eating habits, meal planning, and recipes to maintain a balanced diet and
+                    promote a healthy lifestyle.</p>
+                <button>Learn More</button>
+                <!-- <a href="diet.html" class="lmbtn">Learn More</a> -->
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

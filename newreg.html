@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New user-Be the first one </title>
+<style>
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background-color: #E9D9FF; */
+            background-image: url('./img/regback.jpeg');
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color:rgba(0,0,0,0.8);
+            height:auto;
+            width:300px;
+            padding: 20px;
+            border-radius: 8px;
+            border:2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            color: #ccc;
+            font-weight: 60px;
+            box-shadow: 0 0 10px white;
+            
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: transparent;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            box-shadow:0 2px 3px white ;
+            color:#ccc;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            color: rgb(2, 71, 188);
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .form-group1{
+            padding:15px 0px 15px 0px;
+        }
+        .error-message{
+        color:red;
+        margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+ <div class="container">
+        <h1>Register to SSfitness</h1>
+        <form id="registerForm" action="file1.jsp" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group1">
+                <label for="gender">Gender:</label>
+                <input type="radio" id="gender" name="gender" value="male">Male
+                
+                
+                <input type="radio" id="gender" name="gender" value="female">Female
+                
+                
+            </div>
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" id="dob" name="dateofbirth">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmpassword">
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <!-- <div class=error-message>
+             <%
+                String errorMsg=  (String)session.getAttribute("errorMsg");
+                if (errorMsg != null) { 
+                    out.print(errorMsg); 
+                    session.removeAttribute("errorMsg");
+                   
+                }
+            %>
+            </div> -->
+        </form>
+        <div class="login-link">
+             <a href="newlogin.html" style="text-decoration: none;"><span style="color:#ccc ; ">Already have an account?</span> Login</a>
+        </div>
+    </div>
+
+
+</body>
+</html>

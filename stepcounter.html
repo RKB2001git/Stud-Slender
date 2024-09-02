@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+        background: url("https://wallpapercave.com/wp/wp3197414.jpg") center center/cover;
+        color: white;
+        margin: 0;
+    }
+
+    .counter-container {
+        background: black;
+        padding: 20px;
+        border: 1px solid rgb(59, 59, 59);
+        border-radius: 10px;
+        box-shadow: 5px 5px 8px rgba(200, 54, 54, 0.6);
+        text-align: center;
+        width: 50%;
+        height: 40%;
+    }
+
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #startButton {
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    #resetButton {
+        background-color: rgb(137, 0, 0);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="counter-container">
+        <h1>Step Counter</h1>
+        <p>Steps: <span id="stepCount">0</span></p>
+        <button id="startButton">Start</button>
+        <button id="resetButton">Reset</button>
+    </div>
+
+    <script>
+        let stepCount = 0;
+        let isCounting = false;
+        let lastAcceleration = { x: 0, y: 0, z: 0 };
+        let lastStepTime = Date.now();
+        const stepThreshold = 15; // Adjust this value for sensitivity
+        const stepInterval = 300; // Minimum time (ms) between steps
+
+        document.getElementById('startButton').addEventListener('click', () => {
+            if (!isCounting) {
+                startCounting();
+            } else {
+                stopCounting();
+            }
+        });
+
+        document.getElementById('resetButton').addEventListener('click', () => {
+            resetCounter();
+        });
+
+        function startCounting() {
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                DeviceMotionEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('devicemotion', countSteps);
+                            isCounting = true;
+                            document.getElementById('startButton').textContent = 'Stop';
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                window.addEventListener('devicemotion', countSteps);
+                isCounting = true;
+                document.getElementById('startButton').textContent = 'Stop';
+            }
+        }
+
+        function stopCounting() {
+            window.removeEventListener('devicemotion', countSteps);
+            isCounting = false;
+            document.getElementById('startButton').textContent = 'Start';
+        }
+
+        function countSteps(event) {
+            const acceleration = event.accelerationIncludingGravity;
+            const filteredAcceleration = {
+                x: acceleration.x * 0.1 + lastAcceleration.x * 0.9,
+                y: acceleration.y * 0.1 + lastAcceleration.y * 0.9,
+                z: acceleration.z * 0.1 + lastAcceleration.z * 0.9
+            };
+            lastAcceleration = filteredAcceleration;
+
+            const totalAcceleration = Math.sqrt(
+                filteredAcceleration.x * filteredAcceleration.x +
+                filteredAcceleration.y * filteredAcceleration.y +
+                filteredAcceleration.z * filteredAcceleration.z
+            );
+
+            const currentTime = Date.now();
+            if (totalAcceleration > stepThreshold && (currentTime - lastStepTime) > stepInterval) {
+                stepCount++;
+                document.getElementById('stepCount').textContent = stepCount;
+                lastStepTime = currentTime;
+            }
+        }
+
+        function resetCounter() {
+            stepCount = 0;
+            document.getElementById('stepCount').textContent = stepCount;
+            if (isCounting) {
+                stopCounting();
+            }
+            document.getElementById('startButton').textContent = 'Start';
+        }
+    </script>
+</body>
+
+</html>

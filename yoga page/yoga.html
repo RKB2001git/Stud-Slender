@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga for Health</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    
+    
+</style>
+
+<body>
+    <div class="container">
+        <h1>Yoga for Health Issues</h1>
+        <div class="card-container">
+            <div class="card" data-problem="thyroid">
+                <img src="./img/thyroid.jfif" alt="Thyroid Problem">
+                <h3>Thyroid Problems</h3>
+                <button onclick="showMore('thyroid')">Show Yoga Remedy </button>
+            </div>
+            <div class="card" data-problem="gas">
+                <img src="./img/acidity.jfif" alt="Gas and Acidity">
+                <h3>Gas and Acidity Problem</h3>
+                <button onclick="showMore('gas')">Show Yoga Remedy </button>
+            </div>
+            <div class="card" data-problem="sleep">
+                <img src="./img/sleep.jfif" alt="Better Sleep">
+                <h3>Better Sleep</h3>
+                <button onclick="showMore('sleep')">Show Yoga Remedy</button>
+            </div>
+            <div class="card" data-problem="backpain">
+                <img src="./img/backpain.jfif" alt="Back Pain">
+                <h3>Back Pain</h3>
+                <button onclick="showMore('backpain')">Show Yoga Remedy</button>
+            </div>
+            <div class="card" data-problem="heart">
+                <img src="./img/heart.jfif" alt="Heart Disease">
+                <h3>Heart Disease</h3>
+                <button onclick="showMore('heart')">Show Yoga Remedy</button>
+            </div>
+            <div class="card" data-problem="stress">
+                <img src="./img/stress.jpg" alt="Stress">
+                <h3>Stress</h3>
+                <button onclick="showMore('stress')">Show Yoga Remedy</button>
+            </div>
+            <div class="card" data-problem="anxiety">
+                <img src="./img/anxiety.jfif" alt="Anxiety">
+                <h3>Anxiety</h3>
+                <button onclick="showMore('anxiety')">Show Yoga Remedy</button>
+            </div>
+            <div class="card" data-problem="bloodpressure">
+                <img src="./img/bloodpressure.jfif" alt="Blood Pressure">
+                <h3>Blood Pressure</h3>
+                <button onclick="showMore('bloodpressure')">Show Yoga Remedy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMore(problem) {
+            window.location.href = `details.html?problem=${problem}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        .container {
+            position: relative;
+            width: 50vw;
+            height: 95vh;
+            border: 1px solid rgb(68, 68, 68);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./img/bmi.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .formInput, #bmi, #result {
+            position: relative;
+            z-index: 2;
+        }
+
+        .formInput {
+            height: 50%;
+            width: 80%;
+            margin: auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        input {
+            width:40%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgb(51, 49, 49);
+            border: none;
+            color: white;
+        }
+
+        dl {
+            line-height: 2;
+            color: white;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 8px;
+            background-color: blueviolet;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkviolet;
+        }
+
+        #result, #bmi {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            color: rgb(215, 8, 8);
+            font-size: 2rem;
+        }
+
+        @media (max-width: 1000px) {
+            .container {
+                width: 90vw;
+                height: 95vh;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            input, button {
+                font-size: 1rem;
+            }
+
+            #bmi, #result {
+                font-size: 1.5rem;
+            }
+
+            dl {
+                margin-left: 0px;
+            }
+
+            input {
+                width: 60%;
+            }
+        }
+    </style>
+    <script>
+        function calculateBMI(event) {
+            event.preventDefault();
+            var height = document.getElementById('height').value;
+            var weight = document.getElementById('weight').value;
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                alert("Error! Enter valid data!");
+                return;
+            }
+
+            var BMI = weight / (height * height);
+            var result = document.getElementById('bmi');
+            result.innerText = `BMI is ${BMI.toFixed(2)}`;
+            var statement = document.getElementById('result');
+
+            if (BMI < 18.5) {
+                statement.innerText = "Your BMI falls within the underweight range";
+            } else if (BMI >= 18.5 && BMI <= 24.9) {
+                statement.innerText = "Your BMI falls within the normal or healthy weight range";
+            } else if (BMI >= 25 && BMI <= 29.9) {
+                statement.innerText = "Your BMI falls within the overweight range";
+            } else {
+                statement.innerText = "Your BMI falls within the obese range";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <div class="container">
+        <div class="formInput">
+            <dl>
+                <dt for="height">Enter Height (in meters):</dt>
+                <dd><input type="text" id="height" name="height" placeholder="Enter Height"></dd>
+                <dt for="weight">Enter Weight (in kilograms):</dt>
+                <dd><input type="text" id="weight" name="weight" placeholder="Enter Weight"></dd>
+                <button onclick="calculateBMI(event)">Calculate BMI</button>
+            </dl>
+        </div>
+        <div id="bmi">
+            <h2 style="font-size:25px">BMI will be shown here</h2>
+        </div>
+        <div style="border:1px solid rgb(49, 49, 49); width:100%"></div>
+        <div id="result">
+            <h2 style="font-size:25px">Statements will be shown here...</h2>
+        </div>
+    </div>
+</body>
+
+</html>

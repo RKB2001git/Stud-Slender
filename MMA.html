@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxing and MMA Moves</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+          /*  background-image: url("./img/boxingbg.jpeg");*/
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            /* filter: blur(10px); */
+            /* z-index: ; */
+            color: white;
+        }
+
+        .hero-image {
+            width: 100vw;
+            height: 50vh;
+            background-image: url('./img/10\ New\ Bruce\ Lee\ Hd\ Wallpaper\ FULL\ HD\ 1920×1080\ For\ PC\ Desktop\ 2024.jpeg'); /* Replace with your image path */
+         /*   background-size: cover;*/
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+        .content-section {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size:3em;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 10px;
+        }
+        @media (max-width:780px){
+            .hero-image{
+                display:none;
+            }
+            h1{
+                text-align:center;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <!-- <img src="./img/fightyourlimits.jpeg" alt=""> -->
+    </div>
+
+    <div class="content-section">
+        <h1>Boxing Moves</h1>
+        <div class="video-grid">
+            <iframe src="https://www.youtube.com/embed/o9qPlLLGv6k" title="Boxing Move 1"></iframe>
+            <iframe src="https://www.youtube.com/embed/KcagWYVfvBg" title="Boxing Move 2"></iframe>
+            <iframe src="https://www.youtube.com/embed/YsFK1MMDQgk" title="Boxing Move 3"></iframe>
+            <iframe src="https://www.youtube.com/embed/XIja1S9SXI4" title="Boxing Move 4"></iframe>
+            <iframe src="https://www.youtube.com/embed/mLKrcE0mo4E" title="Boxing Move 5"></iframe>
+        </div>
+        
+    </div>
+
+    <div class="content-section">
+        <h1>MMA Moves</h1>
+        <div class="video-grid">
+            <iframe src="https://www.youtube.com/embed/NoFuhd9W5Pk" title="MMA Move 1"></iframe>
+            <iframe src="https://www.youtube.com/embed/W3IZ4hj1E0c" title="MMA Move 2"></iframe>
+            <iframe src="https://www.youtube.com/embed/lshb_fPVq9A" title="MMA Move 3"></iframe>
+            <iframe src="https://www.youtube.com/embed/iFelZkD-QpY" title="MMA Move 4"></iframe>
+            <iframe src="https://www.youtube.com/embed/KH6qCjgLXJA" title="MMA Move 5"></iframe>
+        </div>
+        
+    </div>
+
+</body>
+</html>

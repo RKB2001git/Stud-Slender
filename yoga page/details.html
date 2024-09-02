@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Issue Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .container {
+        text-align: left;
+    }
+
+    img {
+        width: 550px;
+        height: 400px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 id="problem-title">Loading...</h1>
+        <div id="problem-content">
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const problem = urlParams.get('problem');
+
+        const problemData = {
+            thyroid: {
+                title: "Thyroid Problems",
+                content: `
+                <h2>Supported shoulderstand</h2>
+                    <p>Yoga brings many benefits to your overall health and well-being. It can balance your energy, 
+increase flexibility, and relieve stress. There is a connection between stress and hypothyroidism, 
+but certain yoga poses are thought to balance out thyroids that are either underactive or 
+overactive</p>
+<ol>
+    <li>You can use a folded towel or blanket under your shoulders for support.</li>
+    <li>Bring your shoulders to the edge of the blanket and let your head rest on the mat.</li>
+    <li>Lie flat on your back with your arms alongside your body and your palms facing down.</li>
+    <li>Press your arms and back into the floor for support.</li>
+    <li>On an inhale, lift your legs up to ninety degrees.</li>
+    <li>Slowly exhale and bring your legs over your head.</li>
+    <li>Your feet can balance in the air.</li>
+    <li>Bring your hands to your lower back to support your body.</li>
+    <li>Keep your fingers pointing up toward your hips with your pinky fingers on either side of your spine.</li>
+    <li>Raise your legs straight up toward the ceiling.</li>
+    <li>Aim to keep your shoulders, spine, and hips in one line if it’s possible.</li>
+    <li>You can also keep your hips away from your body at an angle.</li>
+    <li>Keep your chin tucked into your chest as you keep your neck in one position.</li>
+    <li>Release the pose by slowly releasing your legs back over your head.</li>
+    <li>Bring your arms back alongside the body.</li>
+    <li>On an inhale, slowly roll your spine down vertebrae by vertebrae and lift your legs to ninety degrees.</li>
+    <li>Exhale as you lower your legs to the floor.</li>
+</ol>
+
+                    
+                    <img src="./img/thyroid1.png" alt="Thyroid Yoga">
+
+                    <h2>Plow pose</h2>
+                    <p>In plow pose, your thyroid is believed to get the same stimulation as it does in shoulderstand. 
+You may find it easier to do plow pose.</p>
+                        <ol>
+    <li>Lie flat on your back with your arms alongside your body and your palms facing down.</li>
+    <li>Press your arms and back into the floor for support.</li>
+    <li>On an inhale, lift your legs up to ninety degrees.</li>
+    <li>Slowly exhale and bring your legs over your head.</li>
+    <li>Bring your hands to your lower back to support your body.</li>
+    <li>Keep your fingers pointing up toward your hips with your pinky fingers on either side of your spine.</li>
+    <li>You may place a bolster or block under your feet if they don’t reach the floor.</li>
+    <li>Keep your hands on your hips if your feet do not touch the floor or the prop.</li>
+    <li>If it’s comfortable and your feet are supported, you can bring your arms alongside your body or interlace your fingers in front of your hips. You may also bring your arms overhead.</li>
+    <li>Release the pose by bringing your arms on the floor alongside your body.</li>
+    <li>Slowly inhale to lift your legs up and realign your spine along the floor.</li>
+    <li>Exhale to lower your legs to the floor.</li>
+</ol>
+
+                   <img src="./img/thyroid2.png" alt="Thyroid Yoga">
+                    <h2>Fish Pose</h2>
+                    <p>Fish pose is a gentle backbend that can help stimulate your thyroid gland.</p>
+                    <ol>
+    <li>Sit on your buttocks with your legs extended in front of you.</li>
+    <li>Move to one side at a time so you can place your hands underneath your buttocks.</li>
+    <li>Face your palms down and your fingers facing toward your toes.</li>
+    <li>Draw your elbows into each other and open your chest.</li>
+    <li>Slowly lean back onto your forearms and elbows.</li>
+    <li>Open your chest as much as possible and press into your arms to stay lifted.</li>
+    <li>Drop your head back if you feel comfortable.</li>
+    <li>Release by lifting your head, releasing your hands, and lying down on your back.</li>
+</ol>
+
+                    <img src="./img/thyroid3.png" alt="Thyroid Yoga">
+                `
+            },
+            gas: {
+                title: "Gas and Acidity Problem",
+                content: `
+ <h2> Wind-Relieving pose (Pawanmuktasana)</h2>
+ <p>Gif by Active Body. Creative Mind.
+This pose will help you to relax your abdomen, hips, thighs, and buttocks</p>
+<ol>
+    <li>Lie on your back and bring your legs straight up to 90 degrees.</li>
+    <li>Bend both knees and bring your thighs into your abdomen.</li>
+    <li>Keep your knees and ankles together.</li>
+    <li>Bring your arms around your legs.</li>
+    <li>Clasp your hands together or take hold of your elbows.</li>
+    <li>Lift up your neck and tuck your chin into your chest or bring it onto your knees.</li>
+</ol>
+
+
+                    
+ <img src="./img/gas1.jpeg" alt=" Yoga">
+
+ <h2> Child’s pose (Balasana)</h2>
+<p>This asana relaxes your lower back, hips, and legs. It’s believed to massage your internal organs..</p>
+<ol>
+    <li>Come into a kneeling position and sit back on your heels.</li>
+    <li>Adjust your knees so that they’re hip-width apart or slightly wider.</li>
+    <li>Slowly walk your hands out in front of you as you bend at the hips.</li>
+    <li>Allow your torso to rest on your thighs.</li>
+    <li>Lengthen the back of your neck and rest your forehead on the floor.</li>
+    <li>You may keep your arms extended or bring them alongside your body with your palms facing up.</li>
+    <li>Allow your belly to fall heavy into your legs. Maintain a gentle pressure to this area.</li>
+    <li>Rest in this pose for up to 5 minutes.</li>
+</ol>
+
+
+ <img src="./img/gas2.jpeg" alt=" Yoga">
+<h2> Seated Forward Bend (Paschimottanasana)</h2>
+<p>This pose improves digestion and relaxes the body.</p>
+<ol>
+    <li>Sit with your bottom on a folded blanket or cushion with your legs extended in front of you.</li>
+    <li>Press through your heels and draw your toes back toward your shins. You can keep a slight bend in your knees.</li>
+    <li>Place your hands alongside your body and press into the floor as you lengthen your spine.</li>
+    <li>Open your heart center as you root into your sit bones.</li>
+    <li>On an exhale, slowly hinge at your hips and fold forward.</li>
+    <li>Walk your hands alongside your body. Rest them on the floor or on your legs. You can also clasp your hands around your feet.</li>
+    <li>With each inhale, lift your torso slightly and lengthen your spine.</li>
+    <li>On each exhale, lower yourself deeper into the pose.</li>
+</ol>
+
+
+<img src="./img/gas3.jpeg" alt=" Yoga">
+                `
+            },
+            sleep: {
+                title: "Better Sleep",
+                content: `
+                    <h2> Ragdoll pose </h2>
+ <p>Begin standing with your feet about hip-width apart. Bend your knee generously and hinge 
+forward at the hips as you shift your weight forward. Let your upper body hang as your hands 
+clasp your elbows. If you want to take a little movement and it feels good in your body, you can 
+sway back and forth as you hang. Hold for 5-6 deep breaths</p>
+               
+ <img src="./img/sleep1.jpeg" alt="sleep Yoga">
+
+ <h2>Sukhasana + Diaphragmatic Breathing </h2>
+<p>Sit with your legs crossed and your spine long; feel both hips grounding down evenly into your 
+yoga mat. Close your eyes or soften your gaze. Place one hand on your belly and one on your 
+heart. As you inhale, breathe deep into your belly and feel your ribcage expand. Exhale 
+completely out through your mouth. Repeat for 10 deep breaths.</p>
+
+ <img src="./img/sleep2.jpeg" alt="sleep Yoga">
+<h2> Seated Forward Fold </h2>
+<p>In a seated position, extend both legs out long in front of you. Lengthen through your spine as 
+both of your hip bones ground down evenly into your mat. Inhale to reach your arms up 
+overhead, exhale to hinge forward at your hips grabbing your shins, ankles, or feet. Keep your 
+back as flat as possible. After a few breaths, round the spine and fold over your legs. If you have 
+tight hamstrings, bend your knees as generously as you need. Hold for 5-6 deep breaths.</p>
+
+<img src="./img/sleep3.jpeg" alt="sleep Yoga">
+                `
+            },
+            backpain: {
+                title: "Back Pain",
+                content: `
+                <p>If you’re dealing with back pain, yoga may be just what the doctor ordered. Yoga is a mind-body 
+therapy that’s often recommended to treat not only back pain but the stress that accompanies it. 
+The appropriate poses can relax and strengthen your body.</p>
+                    <h2> Cat Cow pose </h2>
+ <p>This gentle, accessible backbend stretches and mobilizes the spine. Practicing this pose also 
+stretches your torso, shoulders.</p>
+               
+ <img src="./img/backpain1.jpeg" alt="sleep Yoga">
+
+ <h2> Downward-Facing Dog </h2>
+<p>This traditional forward bend can be restful and rejuvenating. Practicing this pose can help 
+relieve back pain and sciatica. It helps to work out imbalances in the body .
+</p>
+
+ <img src="./img/backpain2.jpeg" alt="sleep Yoga">
+<h2>Extended forward Triangle </h2>
+<p>This classic standing posture may help alleviate backache, sciatica, and neck pain. It stretches 
+your spine, hips, and groin, and strengthens your shoulders, chest, and legs. It may also help 
+relieve stress and anxiety.</p>
+
+<img src="./img/backpain3.jpeg" alt="sleep Yoga">
+                `
+            },
+            heart: {
+                title: "Heart Disease",
+                content: `
+                <p>Our Heart is one such organ that keeps working continuously even while we are resting or at 
+sleep. This involuntary action is pivotal since it keeps us alive by pumping blood throughout the 
+body. Nowadays, it’s quite clear that there is no age for having heart difficulties, even people in 
+their 20’s are falling prey to some kind of cardiac problem. Sedentary lifestyle, dietary choices, 
+stress, and anxiety are a few things that can disturb the normal functioning of the heart and can 
+increase the risk of cardiovascular problems</p>
+
+<h2> Seated forward bend</h2>
+
+<ol>
+    <li>Start in a seated position with your legs straight out in front of you. You may sit up on a blanket or folded towel.</li>
+    <li>Inhale and lengthen your spine.</li>
+    <li>Exhale and slowly start to bend over your legs. Try to move from the hips and not the waist. Your back should be flat and your head should be upright. Stop folding if your back starts to feel any pain.</li>
+    <li>Breathe as you continue to reach in the direction of your feet or ankles, going only as far as comfortable for you.</li>
+    <li>Hold the pose for 1 to 3 minutes, depending on your comfort level.</li>
+</ol>
+
+                    
+ <img src="./img/heart1.jpeg" alt=" Yoga">
+
+ <h2> Child’s pose (Balasana)</h2>
+<p>This asana relaxes your lower back, hips, and legs. It’s believed to massage your internal organs..</p>
+<ol>
+    <li>Come into a kneeling position and sit back on your heels.</li>
+    <li>Adjust your knees so that they’re hip-width apart or slightly wider.</li>
+    <li>Slowly walk your hands out in front of you as you bend at the hips.</li>
+    <li>Allow your torso to rest on your thighs.</li>
+    <li>Lengthen the back of your neck and rest your forehead on the floor.</li>
+    <li>You may keep your arms extended or bring them alongside your body with your palms facing up.</li>
+    <li>Allow your belly to fall heavy into your legs. Maintain a gentle pressure to this area.</li>
+    <li>Rest in this pose for up to 5 minutes.</li>
+</ol>
+
+
+ <img src="./img/heart2.jpeg" alt=" Yoga">
+<h2> Seated spinal twist </h2>
+<p>This pose improves digestion and relaxes the body.</p>
+
+<ol>
+    <li>Begin seated upright with the left leg bent on the floor with the heel by your right hip and the right leg crossed over the left, sole of the right foot on the floor.</li>
+    <li>Elongate your spine as you extend your left hand up to the ceiling.</li>
+    <li>Start to twist toward the right, ending with your left elbow outside your right knee.</li>
+    <li>Inhale to find more length and exhale to deepen the twist.</li>
+    <li>Hold for 30 seconds to 1 minute, then switch to the other side.</li>
+</ol>
+
+
+<img src="./img/heart3.jpeg" alt=" Yoga">
+                `
+            },
+            stress: {
+                title: "Stress",
+                content: `
+                                   <p>We all face stress in our day-to-day life. Each one of us has a different reason to feel stressed 
+and a unique way to deal with it. While some of us prefer to sweat it out with exercise, others 
+might prefer a comparatively relaxing approach to yoga.
+For those who prefer yoga to battle off their stress and enjoy other health benefits that it has to 
+offer we are suggesting 15 yoga poses to make your journey smooth.</p>
+
+<h2> Hero Pose</h2>
+
+<ol>
+    <li>Get into a kneeling position. Your knees should be together, and your feet should be slightly wider than your hips.</li>
+    <li>Keep the tops of your feet flat on the floor.</li>
+    <li>Sit back so that your bottom reaches the floor in between your feet. If your bottom does not reach the floor, use a block or a book.</li>
+    <li>Place your hands on your thighs.</li>
+    <li>Sit up straight to open your chest and lengthen your spine.</li>
+    <li>Hold this pose for up to 5 minutes.</li>
+</ol>
+
+
+                    
+ <img src="./img/stress1.jpeg" alt=" Yoga">
+
+ <h2> Tree pose </h2>
+<p>This classic standing pose may help you focus inward, quieting racing thoughts..</p>
+<ol>
+    <li>From standing, bear your weight with your right foot and slowly lift your left foot off of the ground.</li>
+    <li>Slowly turn the sole of your left foot toward the inside of your left leg.</li>
+    <li>Place it on the outside of your left ankle, calf, or thigh. Avoid pressing your foot into your knee.</li>
+    <li>Bring your hands into any comfortable position. This could be in prayer position in front of your heart or hanging alongside your sides.</li>
+    <li>Hold this pose for up to 2 minutes.</li>
+    <li>Repeat on the opposite side.</li>
+    
+</ol>
+
+
+
+ <img src="./img/stress2.jpeg" alt=" Yoga">
+<h2> Triangle pose</h2>
+<p>This energizing pose can help ease tension in your neck and back.</p>
+
+<ol>
+    <li>Come into a standing position with your feet wider than your hips.</li>
+    <li>Face your left toes forward and your right toes in at a slight angle.</li>
+    <li>Lift your arms to extend out from your shoulders. Your palms should face down.</li>
+    <li>Extend your torso forward as you reach forward with your left hand.</li>
+    <li>Hinge at your hip joint to bring your right hip back. Take your left hand to your leg, the floor, or a block.</li>
+    <li>Extend your right arm up toward the ceiling.</li>
+    <li>Gaze in any comfortable direction.</li>
+    <li>Hold this pose for up to 1 minute.</li>
+    <li>Then do the opposite side.</li>
+</ol>
+
+
+
+<img src="./img/stress3.jpeg" alt=" Yoga">
+                `
+            },
+            anxiety: {
+                title: "Anxiety",
+                content: `
+                   <p>Many people living with anxiety use a combination of methods to manage their 
+symptoms, including therapy, lifestyle changes, and often, alternative treatments 
+like yoga.
+Anxiety disorders affect more than 40 million (18.1%) U.S. adults over age 18 each 
+year. Anxiety is treatable, but only around 40% of people are receiving treatment.
+Over the years, research studies have shown that yoga can help relieve stress 
+and anxiety. It works by soothing an overactive nervous system, relaxing both the 
+mind and body</p>
+
+<h2> Standing forward bend</h2>
+
+<ol>
+    <li>Stand with your feet about hip-width apart and your hands on your hips.</li>
+    <li>Exhale as you hinge at the hips to fold forward, keeping a slight bend in your knees.</li>
+    <li>Drop your hands to the floor or rest them on a block.</li>
+    <li>Tuck your chin into your chest.</li>
+    <li>Release tension in your lower back and hips. Your head and neck should hang heavy toward the floor.</li>
+    <li>Hold this pose for up to one minute.</li>
+</ol>
+
+
+                    
+ <img src="./img/anxiety1.jpeg" alt=" Yoga">
+
+ <h2> Fish pose </h2>
+<p>This asana relaxes your lower back, hips, and legs. It’s believed to massage your internal organs..</p>
+<ol>
+    <li>Sit with your legs stretched out in front of you.</li>
+    <li>Place your hands underneath your buttocks with your palms facing down.</li>
+    <li>Squeeze your elbows together and expand your chest.</li>
+    <li>Then lean back onto your forearms and elbows, pressing into your arms to stay lifted in your chest.</li>
+    <li>If it’s comfortable, you may let your head hang back toward the floor or rest it on a block or cushion.</li>
+    <li>Hold this pose for up to one minute.</li>
+    
+</ol>
+
+
+
+ <img src="./img/anxiety2.jpeg" alt=" Yoga">
+<h2>  Extended Puppy pose </h2>
+<p>This pose improves digestion and relaxes the body.</p>
+
+<ol>
+    <li>Come into a tabletop position.</li>
+    <li>Extend your hands forward a few inches and sink your buttocks down toward your heels.</li>
+    <li>Press into your hands and engage your arm muscles, keeping your elbows lifted.</li>
+    <li>Gently rest your forehead on the floor.</li>
+    <li>Allow your chest to open and soften during this pose.</li>
+    <li>Hold this pose for up to two minutes.</li>
+</ol>
+
+
+
+<img src="./img/anxiety3.jpeg" alt=" Yoga">
+                `
+            },
+            bloodpressure: {
+                title: "Blood Pressure",
+                content: `
+                    <p>Blood pressure 
+Incredible Yogasanas For High Blood pressure
+Uttanasana (Forward Bent Pose)
+While standing, bring the feet hip-distance apart. Without bending your knees, slowly bend your 
+body above the torso downwards. See that your knees are straight. You can allow your hands and 
+hang down and rest your palms on the ground or just hold your feet to the ankles. Hold this 
+position for 8-10 breaths, then slowly get back to the standing position.
+Benefits:
+Also known as Pada Hasthasana, this inverted anti-gravity posture is an extremely therapeutic 
+pose that enhances your immunity, attenuates stress and relaxes the mind. It helps the blood 
+gush to the head and enhance blood circulation. It also regulates the flow of blood, calms down 
+the body and stabilizes the heart rate.
+Viparita Karani (Legs Up The Wall Pose)
+Initially, sit about 3 inches from an empty wall. Lie onto the back and swing your legs upwards in 
+such a way that the back of the thigh rests against the wall. Rest your entire back, i.e. the spinal 
+column on the floor below and relax the arms on either side of the body or the tummy. Hold the 
+position for 10 minutes or as long as you can and then slowly pull your leg back to the starting 
+position.
+Benefits:
+This posture is one of the relaxing poses that allows you to lie flat on the ground with your legs 
+up without much twisting. Yet, the Viparita Karini is one such beneficial yogasana that allows 
+lymphatic drainage, evens out blood circulation, and releases pressure from the back and hip. It 
+not only helps in relieving stress but also detoxifies the system. By keeping the blood flow in 
+check, it helps to control and bring down high blood pressure.
+Sethubandhasana (Bridge Pose)
+Start the posture by lying flat on your back. Now bend your knees and elbows. Place your feet 
+flat on the floor close to the hips and your hands firmly on either side of the head. While 
+supporting both your hands and legs on the ground, slowly try to lift your body up into the air. 
+Hold this arching posture for 20-30 secs and slowly bring your body up into a standing pose.
+Benefits:
+This is an extremely beneficial posture for not only relieving arthritic pain but also strengthening 
+the leg, thigh and back muscles. By lifting the heart at a raised level than that of the head, it 
+facilitates blood circulation to even the most difficult and out of reach places. It also releases 
+blocked channels and effectively brings down blood pressure.
+Adho Mukha Svanasana (Downward-facing dog pose)
+Come on all fours with your knees hips-width apart and your hands shoulder-width apart. Now, 
+slowly lift your hips off the floor and straighten your elbows and knees. Ensure that your body 
+forms an inverted ‘V’. Now, press your hands into the ground and stretch your neck such that 
+your ears should touch your inner arms, and you should turn your gaze towards your navel. Hold 
+this position for five-eight breathes and then return to the original position.
+Benefits:
+.</p>
+                    <img src="./img/bloodpressure.jpeg" alt="Blood Pressure Yoga">
+                   
+                `
+            }
+        };
+
+        if (problemData[problem]) {
+            document.getElementById('problem-title').innerText = problemData[problem].title;
+            document.getElementById('problem-content').innerHTML = problemData[problem].content;
+        } else {
+            document.getElementById('problem-title').innerText = "Problem not found!";
+        }
+    </script>
+</body>
+
+</html>

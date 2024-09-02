@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Intake Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color:white;
+    background-image: url("./img/water\ bg.jpg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.water-intake-calculator {
+    background-color: rgb(16, 15, 15);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    height:50%;
+}
+
+.water-intake-calculator h2 {
+    margin-top: 0;
+}
+
+.water-intake-calculator form {
+    display: flex;
+    flex-direction: column;
+}
+
+.water-intake-calculator label {
+    margin: 10px 0 5px;
+}
+
+.water-intake-calculator input,
+.water-intake-calculator select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color:rgb(42, 40, 40);
+    color:white;
+}
+
+.water-intake-calculator button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.water-intake-calculator button:hover {
+    background-color: #0056b3;
+}
+
+#waterResult {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red; /* Change color to red for error messages */
+}
+
+</style>
+<body>
+    <div class="water-intake-calculator">
+        <h2>Water Intake Calculator</h2>
+        <form id="waterForm">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+            <br>
+            <label for="activity">Activity Level:</label>
+            <select id="activity" required>
+                <option value="">Select activity level</option>
+                <option value="low">Low (little to no exercise)</option>
+                <option value="moderate">Moderate (exercise 3-4 times a week)</option>
+                <option value="high">High (exercise 5-7 times a week)</option>
+            </select>
+            <br>
+            <button type="button" onclick="calculateWaterIntake()">Calculate Water Intake</button>
+        </form>
+        <p id="waterResult"></p>
+    </div>
+    <script>
+        function calculateWaterIntake() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const activity = document.getElementById('activity').value;
+
+    if (!weight || activity === "") {
+        document.getElementById('waterResult').innerText = 'Please provide all required inputs.';
+        return;
+    }
+
+    let waterIntake = weight * 0.033; // Basic water intake calculation: 0.033 liters per kg of weight
+
+    // Adjust water intake based on activity level
+    switch (activity) {
+        case 'low':
+            waterIntake *= 1.0; // No change for low activity
+            break;
+        case 'moderate':
+            waterIntake *= 1.2; // Increase by 20% for moderate activity
+            break;
+        case 'high':
+            waterIntake *= 1.4; // Increase by 40% for high activity
+            break;
+        default:
+            waterIntake = weight * 0.033; // Basic calculation
+    }
+
+    // Display the result
+    document.getElementById('waterResult').innerText = `You should drink approximately ${waterIntake.toFixed(2)} liters of water per day.`;
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Trainers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(32, 32, 32) ;
+            padding: 20px;
+            color: rgb(41, 41, 41);
+            /* background-image:url("./img/workoutbg.jpg") ; */
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            color:white;
+        }
+
+        .trainer-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .trainer-card {
+            background-color: transparent;
+            color:white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .trainer-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .trainer-card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .trainer-card p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .trainer-card:hover {
+            transform: scale(1.05);
+        }
+
+        .trainer-form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:rgb(85, 85, 85);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .trainer-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .trainer-form select,
+        .trainer-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid rgb(199, 193, 193);
+            font-size: 1rem;
+        }
+
+        .trainer-form input[type="submit"] {
+            background-color:rgb(9, 72, 136);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .trainer-form input[type="submit"]:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Our Personal Trainers</h1>
+    <div class="trainer-container">
+        <div class="trainer-card">
+            <img src="trainer1.jpg" alt="Trainer 1">
+            <h3>John Doe</h3>
+            <p>Yoga</p>
+            <p>Slots Available: 5</p>
+            <p>People Coached: 15</p>
+        </div>
+        <div class="trainer-card">
+            <img src="trainer2.jpg" alt="Trainer 2">
+            <h3>Jane Smith</h3>
+            <p>Workout</p>
+            <p>Slots Available: 3</p>
+            <p>People Coached: 20</p>
+        </div>
+        <div class="trainer-card">
+            <img src="trainer3.jpg" alt="Trainer 3">
+            <h3>Mike Johnson</h3>
+            <p>Boxing</p>
+            <p>Slots Available: 4</p>
+            <p>People Coached: 12</p>
+        </div>
+        <div class="trainer-card">
+            <img src="trainer4.jpg" alt="Trainer 4">
+            <h3>Sarah Lee</h3>
+            <p>Diet & nutrition</p>
+            <p>Slots Available: 2</p>
+            <p>People Coached: 10</p>
+        </div>
+        <div class="trainer-card">
+            <img src="trainer5.jpg" alt="Trainer 5">
+            <h3>David Kim</h3>
+            <p>MMA</p>
+            <p>Slots Available: 6</p>
+            <p>People Coached: 18</p>
+        </div>
+    </div>
+
+    <div class="trainer-form">
+        <h2>Choose Your Trainer</h2>
+        <form id="trainerForm">
+            <label for="trainerType">Select Trainer Type:</label>
+            <select id="trainerType">
+                <option value="">--Select Trainer Type--</option>
+                <option value="yoga">Yoga</option>
+                <option value="workout">Workout</option>
+                <option value="boxing">Boxing</option>
+                <option value="mma">MMA</option>
+                <option value="diet">Diet & nutrition</option>
+            </select>
+
+            <label for="trainerName">Select Trainer Name:</label>
+            <select id="trainerName">
+                <option value="">--Select Trainer Name--</option>
+            </select>
+
+            <label for="timeSlot">Select Time Slot:</label>
+            <select id="timeSlot">
+                <option value="">--Select Time Slot--</option>
+                <option value="6-8am">6:00 AM - 8:00 AM</option>
+                <!-- <option value="8-10am">8:00 AM - 10:00 AM</option>
+                
+                <option value="2-4pm">2:00 PM - 4:00 PM</option> -->
+                <option value="4-6pm">4:00 PM - 6:00 PM</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        const trainerData = {
+            yoga: ["john Doe"],
+            workout: ["Jane Smith"],
+            boxing: ["Mike Johnson"],
+            mma:["David Kim"],
+            diet: ["Sarah Lee"]
+        };
+
+        const trainerTypeSelect = document.getElementById('trainerType');
+        const trainerNameSelect = document.getElementById('trainerName');
+
+        trainerTypeSelect.addEventListener('change', function() {
+            const selectedType = this.value;
+            const trainerNames = trainerData[selectedType] || [];
+
+            // Clear previous options
+            trainerNameSelect.innerHTML = '<option value="">--Select Trainer Name--</option>';
+
+            // Populate trainer names
+            trainerNames.forEach(name => {
+                const option = document.createElement('option');
+                option.value = name;
+                option.textContent = name;
+                trainerNameSelect.appendChild(option);
+            });
+        });
+
+        document.getElementById('trainerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const trainerType = trainerTypeSelect.value;
+            const trainerName = trainerNameSelect.value;
+            const timeSlot = document.getElementById('timeSlot').value;
+
+            if (trainerType && trainerName && timeSlot) {
+                alert(`Trainer: ${trainerName}\nType: ${trainerType}\nTime Slot: ${timeSlot}`);
+            } else {
+                alert('Please select all options.');
+            }
+        });
+    </script>
+</body>
+</html>
