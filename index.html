@@ -541,7 +541,7 @@ footer a:hover {
         <hr color="grey">
     </header>
     <main>
-        <div class="container">
+        <div class="container" onclick="scrollToWellness()">
             <div class="landing-text">
                 <div id="typed-text"></div>
             </div>
@@ -549,7 +549,7 @@ footer a:hover {
 
 
 
-        <div class="mainWelnessContainer">
+        <div class="mainWelnessContainer" id="mainWellnessContainer">
             <h1 style="text-align: center;">Your Complete Journey...</h1>  
         <div class="wellnessContainer">
             <a href="workout.html">
@@ -599,14 +599,7 @@ footer a:hover {
         </div>
     </div>
 
-
-
-
-
-        
-
     </main>
-
 
     <footer>
         <div class="social-media">
@@ -651,6 +644,10 @@ footer a:hover {
         }
 
         typeText();
+
+        function scrollToWellness() {
+            document.getElementById("mainWellnessContainer").scrollIntoView({ behavior: "smooth" });
+        }
     </script>
 </body>
 </html>
